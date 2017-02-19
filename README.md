@@ -8,7 +8,7 @@ A docker image allowing to start an ArchiSteamFarm instance with the preconfigur
 
 and now you can attach your newly created docker to connect your account :
 
-`docker attach ${ docker ps -lq }`
+`docker attach $( docker ps -lq )`
 
 to leave the docker press CTRL+P or CTRL+Q (not CTRL+C, it'll kill the process)
 
