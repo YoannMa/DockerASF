@@ -24,7 +24,9 @@ RUN git clone ${GIT_URL} ${ASF_PATH}
 
 WORKDIR ${ASF_PATH}
 
-RUN ./cc.sh
+RUN ./cc.sh && rm out/config/example.json && rm out/config/minimal.json
 
-CMD ./run.sh
+COPY bot.json out/config/
+
+CMD ["mono","out/ASF.exe"]
 
