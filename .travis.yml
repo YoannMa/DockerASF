@@ -1,0 +1,20 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+install:
+  - git clone https://github.com/JustArchi/ArchiSteamFarm.git
+  - cd ArchiSteamFarm
+  - VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
+  - git checkout $VERSION
+  - cd ..
+
+script:
+  - docker build --build-arg GIT_TAG=${VERSION} -t yoannm/archisteamfarm:${VERSION} .
+
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker push yoannm/archisteamfarm:${VERSION}

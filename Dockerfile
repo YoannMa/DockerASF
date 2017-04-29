@@ -3,24 +3,27 @@
 # Based on Mono container
 ################################################################################
 
-# Set the base image to Mono lastest (4.4.1.0)
+# Set the base image to Mono lastest
 FROM mono:latest
 
 # File Author / Maintainer
 MAINTAINER Yoann MALLEMANCHE (Yoannm)
 
+ARG GIT_TAG=2.3.1.2
+
 # Env ASF build
-ENV ASF_PATH=/asf
-ENV GIT_URL=https://github.com/JustArchi/ArchiSteamFarm.git
-ENV GIT_TAG=latest
+ENV ASF_PATH=/asf \
+    GIT_URL=https://github.com/JustArchi/ArchiSteamFarm.git
+    GIT_TAG=${GIT_TAG}
 
 # Install dependancies
-RUN apt-get update \
-  && apt-get install -y git \
-  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y git && \
+    rm -rf /var/lib/apt/lists/*
 
 # clone ASF
-RUN git clone ${GIT_URL} ${ASF_PATH}
+RUN git clone ${GIT_URL} ${ASF_PATH} && \
+    git checkout ${GIT_TAG}
 
 WORKDIR ${ASF_PATH}
 

@@ -20,4 +20,4 @@ You can attach a volume to your current configuration (or if you want to save yo
 
 # Info
 
-I intend to always use the last version of ASF (following the branch Master)
+Using Travis with a CRON to build weekly images (or daily) matching the last version of ASF
