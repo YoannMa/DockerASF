@@ -22,8 +22,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # clone ASF
-RUN git clone ${GIT_URL} ${ASF_PATH} && \
-    git checkout ${GIT_TAG}
+#RUN git clone ${GIT_URL} ${ASF_PATH} && \
+#    cd ${ASF_PATH} && \
+#    git checkout ${GIT_TAG}
+
+COPY ArchiSteamFarm/ ${ASF_PATH}
 
 WORKDIR ${ASF_PATH}
 
