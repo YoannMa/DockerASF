@@ -13,7 +13,7 @@ ARG GIT_TAG=2.3.1.2
 
 # Env ASF build
 ENV ASF_PATH=/asf \
-    GIT_URL=https://github.com/JustArchi/ArchiSteamFarm.git
+    GIT_URL=https://github.com/JustArchi/ArchiSteamFarm.git \
     GIT_TAG=${GIT_TAG}
 
 # Install dependancies
