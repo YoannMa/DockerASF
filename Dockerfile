@@ -16,6 +16,9 @@ ENV ASF_PATH=/asf \
     GIT_URL=https://github.com/JustArchi/ArchiSteamFarm.git \
     GIT_TAG=${GIT_TAG}
 
+LABEL org.label-schema.vcs-url="https://github.com/YoannMa/DockerASF" \
+      org.label-schema.version=${GIT_TAG}
+
 # Install dependancies
 RUN apt-get update && \
     apt-get install -y unzip && \

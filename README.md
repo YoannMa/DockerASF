@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/YoannMa/DockerASF.svg?branch=master)](https://travis-ci.org/YoannMa/DockerASF)&nbsp;
+[![Docker Pulls](https://img.shields.io/docker/pulls/yoannm/archisteamfarm.svg)](https://hub.docker.com/r/yoannm/archisteamfarm/)&nbsp;
+[![Image size](https://images.microbadger.com/badges/image/yoannm/archisteamfarm.svg)](https://hub.docker.com/r/yoannm/archisteamfarm/tags/)&nbsp;
+[![Image version](https://images.microbadger.com/badges/version/yoannm/archisteamfarm.svg)](https://hub.docker.com/r/yoannm/archisteamfarm/tags/)
+
 # DockerASF
 
 A docker image allowing to start an ArchiSteamFarm instance with the pre-configured configuration
