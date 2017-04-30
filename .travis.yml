@@ -6,11 +6,7 @@ services:
   - docker
 
 install:
-  - git clone https://github.com/JustArchi/ArchiSteamFarm.git
-  - cd ArchiSteamFarm
-  - VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
-  - git checkout $VERSION
-  - cd ..
+  - VERSION=`curl https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases/latest -s | jq .tag_name -r`
 
 script:
   - docker build --build-arg GIT_TAG=${VERSION} -t yoannm/archisteamfarm:${VERSION} .

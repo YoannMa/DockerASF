@@ -18,21 +18,17 @@ ENV ASF_PATH=/asf \
 
 # Install dependancies
 RUN apt-get update && \
-    apt-get install -y git && \
+    apt-get install -y unzip && \
     rm -rf /var/lib/apt/lists/*
 
-# clone ASF
-#RUN git clone ${GIT_URL} ${ASF_PATH} && \
-#    cd ${ASF_PATH} && \
-#    git checkout ${GIT_TAG}
+ADD https://github.com/JustArchi/ArchiSteamFarm/releases/download/${GIT_TAG}/ASF.zip ASF.zip
 
-COPY ArchiSteamFarm/ ${ASF_PATH}
+RUN unzip ASF.zip -d ${ASF_PATH} && \
+    rm ${ASF_PATH}/config/example.json && rm ${ASF_PATH}/config/minimal.json
 
 WORKDIR ${ASF_PATH}
 
-RUN ./cc.sh && rm out/config/example.json && rm out/config/minimal.json
+COPY bot.json ${ASF_PATH}/config
 
-COPY bot.json out/config/
-
-CMD ["mono","out/ASF.exe"]
+CMD ["mono","ASF.exe"]
 

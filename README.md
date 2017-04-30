@@ -1,6 +1,6 @@
 # DockerASF
 
-A docker image allowing to start an ArchiSteamFarm instance with the preconfigured configuration
+A docker image allowing to start an ArchiSteamFarm instance with the pre-configured configuration
 
 # Usage
 
