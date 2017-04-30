@@ -21,7 +21,7 @@ to leave the docker press CTRL+P or CTRL+Q (not CTRL+C, it'll kill the process)
 
 You can attach a volume to your current configuration (or if you want to save your config) :
 
-`docker run -dit -v path/to/myconfig/:/asf/out/config --name ArchiSteamFarm yoannm/archisteamfarm`
+`docker run -dit -v path/to/myconfig/:/asf/config --name ArchiSteamFarm yoannm/archisteamfarm`
 
 # Info
 
