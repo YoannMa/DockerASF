@@ -18,4 +18,4 @@ script:
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   - docker push yoannm/archisteamfarm:${VERSION}
-  - docker push yoannm/archisteamfarm:latest
+  - docker push yoannm/archisteamfarm
