@@ -10,7 +10,7 @@ services:
   - docker
 
 install:
-  - VERSION=`curl https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases/latest -s | jq .tag_name -r`
+  - VERSION=`curl https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases -s | jq .[0].tag_name -r`
 
 script:
   - docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION} -t yoannm/archisteamfarm:latest .
