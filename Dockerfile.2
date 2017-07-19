@@ -1,5 +1,5 @@
 ################################################################################
-# Dockerfile to run ArchiSteamFarm
+# Dockerfile to run ArchiSteamFarm V2
 # Based on Mono container
 ################################################################################
 
@@ -9,7 +9,7 @@ FROM mono:latest
 # File Author / Maintainer
 MAINTAINER Yoann MALLEMANCHE (Yoannm)
 
-ARG VERSION=2.3.1.2
+ARG VERSION=2.3.2.4
 
 # Env ASF build
 ENV ASF_PATH=/asf \
@@ -33,4 +33,3 @@ WORKDIR ${ASF_PATH}
 COPY bot.json ${ASF_PATH}/config
 
 CMD ["mono","ASF.exe"]
-

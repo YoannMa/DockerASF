@@ -11,9 +11,15 @@ services:
 
 install:
   - VERSION=`curl https://api.github.com/repos/JustArchi/ArchiSteamFarm/releases -s | jq .[0].tag_name -r`
+  - MAJOR=`echo ${VERSION} | cut -d. -f1`
 
 script:
-  - docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION} -t yoannm/archisteamfarm:latest .
+  - if [ "${MAJOR} -gt 2"  ]; then 
+	DOCKER_FILE=Dockerfile.3;
+    else
+	DOCKER_FILE=Dockerfile.2;
+    fi
+  - docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION} -t yoannm/archisteamfarm:latest -t yoannm/archisteamfarm:${MAJOR} -f ${DOCKER_FILE} .;
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
