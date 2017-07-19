@@ -15,9 +15,9 @@ install:
 
 script:
   - if [ "${MAJOR} -gt 2"  ]; then 
-	DOCKER_FILE=Dockerfile.3;
+      DOCKER_FILE=Dockerfile.3;
     else
-	DOCKER_FILE=Dockerfile.2;
+      DOCKER_FILE=Dockerfile.2;
     fi
   - docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION} -t yoannm/archisteamfarm:latest -t yoannm/archisteamfarm:${MAJOR} -f ${DOCKER_FILE} .;
 
