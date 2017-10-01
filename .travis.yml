@@ -19,7 +19,11 @@ script:
     else
       DOCKER_FILE=Dockerfile.2;
     fi
-  - docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION} -t yoannm/archisteamfarm:latest -t yoannm/archisteamfarm:${MAJOR} -f ${DOCKER_FILE} .;
+  - if [ ${TRAVIS_PULL_REQUEST} = "false" ]
+      docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION} -t yoannm/archisteamfarm:latest -t yoannm/archisteamfarm:${MAJOR} -f ${DOCKER_FILE} .;
+    else
+      docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION}-pr${TRAVIS_PULL_REQUEST} -f ${DOCKER_FILE} .;
+    fi
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
