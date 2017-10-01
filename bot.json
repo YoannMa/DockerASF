@@ -1,5 +1,5 @@
 {
 	"Enabled": true,
-	"SteamLogin": null,
-	"SteamPassword": null
+	"SteamLogin": "username",
+	"SteamPassword": "password"
 }
