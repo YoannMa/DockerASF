@@ -20,7 +20,7 @@ LABEL org.label-schema.vcs-url="https://github.com/YoannMa/DockerASF" \
 
 # Install dependancies
 RUN apt-get update && \
-    apt-get install apt-utils && \
+    apt-get install apt-utils -y && \
     apt-get install -y unzip && \
     rm -rf /var/lib/apt/lists/*
 
