@@ -19,7 +19,7 @@ script:
     else
       DOCKER_FILE=Dockerfile.2;
     fi
-  - if [ ${TRAVIS_PULL_REQUEST} = "false" ]
+  - if [ ${TRAVIS_PULL_REQUEST} = "false" ]; then
       docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION} -t yoannm/archisteamfarm:latest -t yoannm/archisteamfarm:${MAJOR} -f ${DOCKER_FILE} .;
     else
       docker build --build-arg VERSION=${VERSION} -t yoannm/archisteamfarm:${VERSION}-pr${TRAVIS_PULL_REQUEST} -f ${DOCKER_FILE} .;
