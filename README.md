@@ -3,6 +3,10 @@
 [![Image size](https://images.microbadger.com/badges/image/yoannm/archisteamfarm.svg)](https://hub.docker.com/r/yoannm/archisteamfarm/tags/)&nbsp;
 [![Image version](https://images.microbadger.com/badges/version/yoannm/archisteamfarm.svg)](https://hub.docker.com/r/yoannm/archisteamfarm/tags/)
 
+# Deprecated
+
+As ASF got their own Docker image, this is not really useful anymore
+
 # DockerASF
 
 A docker image allowing to start an ArchiSteamFarm instance with the pre-configured configuration
